@@ -64,6 +64,17 @@
                </li>
 
                <li>
+                  <a href="#publication" class="nav__link">
+                     Research
+                  </a>
+               </li>
+               <li>
+                  <a href="#education" class="nav__link">
+                     Education
+                  </a>
+               </li>
+
+               <li>
                   <a href="#contact" class="nav__contact">
                      Contact me
                   </a>
@@ -103,7 +114,7 @@
             <div class="home__content">
                <p class="home__subtitle">Hi, I'm Mariem</p>
                <h1 class="home__title">AI & Data Science<br><span id="home-typed">Engineer</span></h1>
-               <p class="home__description">I build intelligent digital products and reliable software that turn complex ideas into useful experiences.</p>
+               <p class="home__description">AI & Data Science Engineer, Software Developer, and Co-Founder & Developer of <strong>My Stay</strong>, a hotel guest application.</p>
                <div class="home__buttons">
                   <a href="#work" class="button">View my work <i class="ri-arrow-right-line"></i></a>
                   <a href="#contact" class="button button--ghost">Let's talk</a>
@@ -111,7 +122,7 @@
             </div>
             <div class="home__image-wrap">
                <span class="home__eyebrow">Machine learning<br>Web & mobile</span>
-               <img src="assets/img/home-img.png" alt="Mariem Bouhlel portfolio illustration" class="home__image">
+               <img src="assets/img/me.jpg" alt="Portrait of Mariem Bouhlel" class="home__image">
             </div>
          </div>
 
@@ -126,7 +137,7 @@
                <h2 class="section__title section__title--left">Building with <span>curiosity</span> and purpose.</h2>
             </div>
             <div class="about__content">
-               <p class="about__description">AI and Data Science Engineer and Software Developer, passionate about transforming data and ideas into thoughtful, practical products.</p>
+               <p class="about__description">AI and Data Science Engineer, Software Developer, and Co-Founder & Developer of My Stay, a hotel guest application connecting guests with hotel services.</p>
                <p class="about__description">I work across machine learning, deep learning, web and mobile development, always looking for the clearest solution to a meaningful problem.</p>
                <a href="#contact" class="button button--small">Contact me <i class="ri-arrow-right-line"></i></a>
             </div>
@@ -139,22 +150,67 @@
          <div class="container">
             <p class="section__eyebrow">Selected projects</p>
             <h2 class="section__title section__title--left">View my <span>work</span></h2>
-            <div class="work__category">
-               <h3 class="work__category-title">Software Development</h3>
-               <div class="work__grid">
-               <article class="work__card"><video class="work__media" autoplay muted loop playsinline aria-label="Angular event management application preview"><source src="assets/img/work-img-1.mp4" type="video/mp4">Your browser does not support the video.</video><div class="work__data"><span>01 / Angular</span><h3>Event Management Application</h3><p>Web application for organizing events, registrations and participants.</p></div></article>
-               <article class="work__card"><img src="assets/img/work-img-2.png" alt="Flutter movie discovery and recommendation application"><div class="work__data"><span>02 / Flutter</span><h3>Movie Discovery & Recommendation App</h3><p>Mobile application for discovering films and receiving personalized recommendations.</p></div></article>
-               <article class="work__card"><video class="work__media" autoplay muted loop playsinline aria-label="CMMS maintenance system preview"><source src="assets/img/CMMS.mp4" type="video/mp4">Your browser does not support the video.</video><div class="work__data"><span>04 / Software engineering</span><h3>CMMS - Maintenance System</h3><p>Maintenance management system for tracking equipment and interventions.</p><a class="work__link" href="https://github.com/Marie-bouhlel/CMMS" target="_blank" rel="noopener noreferrer">View on GitHub <i class="ri-external-link-line"></i></a></div></article>
-               </div>
+            <div class="work__browser" data-project-browser>
+               <aside class="work__navigator" aria-label="Project navigation">
+                  <p class="work__navigator-label">Explore by domain</p>
+                  <div class="work__domains" role="tablist">
+                     <button class="work__domain is-active" type="button" role="tab" aria-selected="true" aria-controls="project-showcase" data-domain="development">Software Development</button>
+                     <button class="work__domain" type="button" role="tab" aria-selected="false" aria-controls="project-showcase" data-domain="ai">AI & Data Science</button>
+                  </div>
+                  <div class="work__project-list" data-project-list></div>
+               </aside>
+               <article class="work__showcase" id="project-showcase" role="tabpanel" data-project-showcase aria-live="polite">
+                  <div class="work__showcase-media" data-project-media></div>
+                  <div class="work__showcase-content">
+                     <span class="work__showcase-kicker" data-project-kicker></span>
+                     <h3 data-project-title></h3>
+                     <p data-project-description></p>
+                     <a class="work__link work__link--glow" data-project-link target="_blank" rel="noopener noreferrer">View project <i class="ri-arrow-right-up-line"></i></a>
+                  </div>
+               </article>
             </div>
-            <div class="work__category">
-               <h3 class="work__category-title">AI & Data Science</h3>
-               <div class="work__grid">
-               <article class="work__card"><video class="work__media" autoplay muted loop playsinline aria-label="Automatic blood pressure status classification MAPA project preview"><source src="assets/img/work-img-3.mp4" type="video/mp4">Your browser does not support the video.</video><div class="work__data"><span>01 / Machine learning</span><h3>Classification Automatique du Statut Tensionnel MAPA</h3><p>Automatic classification using Tunisian health data.</p><a class="work__link" href="https://github.com/Marie-bouhlel/Classification-Automatique-du-Statut-Tensionnel-MAPA" target="_blank" rel="noopener noreferrer">View on GitHub <i class="ri-external-link-line"></i></a></div></article>
-               <article class="work__card"><img src="assets/img/work-img-5.png" alt="OPHAI RetinAI diagnostic application"><div class="work__data"><span>02 / Deep learning</span><h3>OPHAI - RetinAI Diagnostic App</h3><p>Diabetic retinopathy diagnosis assistant using deep learning, Grad-CAM and Streamlit.</p><a class="work__link" href="https://github.com/Marie-bouhlel/OPHAI" target="_blank" rel="noopener noreferrer">View on GitHub <i class="ri-external-link-line"></i></a></div></article>
-               <article class="work__card"><video class="work__media" autoplay muted loop playsinline aria-label="Epilepsy EEG classification project preview"><source src="assets/img/EEG.mp4" type="video/mp4">Your browser does not support the video.</video><div class="work__data"><span>03 / Deep learning</span><h3>Epilepsy EEG Classification</h3><p>Classification of EEG signals to support epilepsy analysis.</p></div></article>
-               </div>
+         </div>
+      </section>
+
+      <!--==================== EDUCATION ====================-->
+      <section class="education section" id="education">
+         <div class="container">
+            <p class="section__eyebrow">Academic journey</p>
+            <h2 class="section__title section__title--left">Learning with <span>purpose</span></h2>
+            <div class="education__timeline">
+               <article class="education__item">
+                  <div class="education__photo education__photo--lycee"><img src="assets/img/education-lycee.jpg" alt="Logo du Lycée Jeunes Filles de Sousse"></div>
+                  <div class="education__content"><span>2022</span><h3>Baccalauréat in Technical Sciences</h3><p>Lycée Jeunes Filles de Sousse</p></div>
+               </article>
+               <article class="education__item">
+                  <div class="education__photo education__photo--prep"><img src="assets/img/education-prep.png" alt="Logo de l'École Polytechnique de Sousse"></div>
+                  <div class="education__content"><span>2022 – 2024</span><h3>Integrated Preparatory Cycle</h3><p>Mathematics, Physics and Computer Science</p></div>
+               </article>
+               <article class="education__item">
+                  <div class="education__photo education__photo--polytech"><img src="assets/img/education-polytech.jpg" alt="Logo de l'École Polytechnique de Sousse"></div>
+                  <div class="education__content"><span>2024 – 2027</span><h3>Engineering Cycle in Computer Engineering</h3><p>Artificial Intelligence & Data Science · École Polytechnique de Sousse</p></div>
+               </article>
             </div>
+         </div>
+      </section>
+
+      <!--==================== SCIENTIFIC PUBLICATION ====================-->
+      <section class="publication section" id="publication">
+         <div class="container">
+            <p class="section__eyebrow">Scientific publication</p>
+            <article class="publication__card">
+               <div class="publication__mark"><i class="ri-book-open-line"></i></div>
+               <div>
+                  <span class="publication__meta">Research article · Machine Learning · 2025</span>
+                  <h2>Automatic Classification of Blood Pressure Status Using Tunisian MAPA Data</h2>
+                  <p>This research explores machine learning methods for automatically classifying blood pressure status from ambulatory blood pressure monitoring data collected in Tunisia. The work focuses on building a reliable, data-driven approach that can support clinical analysis and improve the interpretation of MAPA measurements.</p>
+                  <div class="publication__keywords"><span>MAPA</span><span>Machine Learning</span><span>Health Data</span><span>Tunisia</span></div>
+                  <div class="publication__actions">
+                     <a class="work__link work__link--glow" href="assets/img/article.pdf" target="_blank" rel="noopener noreferrer">Read the article <i class="ri-file-text-line"></i></a>
+                     <a class="work__link" href="https://github.com/Marie-bouhlel/Classification-Automatique-du-Statut-Tensionnel-MAPA" target="_blank" rel="noopener noreferrer">View MAPA project <i class="ri-arrow-right-up-line"></i></a>
+                  </div>
+               </div>
+            </article>
          </div>
       </section>
 

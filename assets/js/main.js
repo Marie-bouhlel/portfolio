@@ -138,13 +138,18 @@ if (projectBrowser) {
          { type: '03 / Deep learning', title: 'Epilepsy EEG Classification', description: 'Classification of EEG signals to support epilepsy analysis.', media: 'video', source: 'assets/img/EEG.webm' }
       ]
    }
-   const list = projectBrowser.querySelector('[data-project-list]')
    const media = projectBrowser.querySelector('[data-project-media]')
    const kicker = projectBrowser.querySelector('[data-project-kicker]')
    const title = projectBrowser.querySelector('[data-project-title]')
    const description = projectBrowser.querySelector('[data-project-description]')
    const link = projectBrowser.querySelector('[data-project-link]')
    const showcase = projectBrowser.querySelector('[data-project-showcase]')
+   const previousButton = projectBrowser.querySelector('[data-project-prev]')
+   const nextButton = projectBrowser.querySelector('[data-project-next]')
+   const dots = projectBrowser.querySelector('[data-project-dots]')
+   const counter = projectBrowser.querySelector('[data-project-counter]')
+   let currentDomain = 'development'
+   let currentIndex = 0
    let carouselTimer
 
    link.addEventListener('click', () => {
@@ -176,8 +181,20 @@ if (projectBrowser) {
 
    }
 
-   const selectProject = (project) => {
+   const selectProject = (project, index, animate = true) => {
       renderProject(project)
+      currentIndex = index
+      dots.querySelectorAll('[data-project-dot]').forEach((dot, dotIndex) => {
+         dot.classList.toggle('is-active', dotIndex === index)
+         dot.setAttribute('aria-current', dotIndex === index ? 'true' : 'false')
+      })
+      counter.textContent = `${index + 1} / ${projects[currentDomain].length}`
+      if (animate) {
+         showcase.classList.remove('is-changing')
+         void showcase.offsetWidth
+         showcase.classList.add('is-changing')
+         window.setTimeout(() => showcase.classList.remove('is-changing'), 420)
+      }
       if (window.gsap) {
          gsap.killTweensOf(showcase)
          gsap.set(showcase, { autoAlpha: 0, x: -18 })
@@ -186,21 +203,32 @@ if (projectBrowser) {
    }
 
    const renderDomain = (domain) => {
-      list.innerHTML = ''
+      currentDomain = domain
+      currentIndex = 0
+      dots.innerHTML = ''
       projects[domain].forEach((project, index) => {
          const button = document.createElement('button')
-         button.className = `work__project-button${index === 0 ? ' is-active' : ''}`
+         button.className = `work__project-dot${index === 0 ? ' is-active' : ''}`
          button.type = 'button'
-         button.textContent = project.title
+         button.dataset.projectDot = ''
+         button.setAttribute('aria-label', `Show project ${index + 1}: ${project.title}`)
+         button.setAttribute('aria-current', index === 0 ? 'true' : 'false')
          button.addEventListener('click', () => {
-            list.querySelectorAll('.work__project-button').forEach((item) => item.classList.remove('is-active'))
-            button.classList.add('is-active')
-            selectProject(project)
+            selectProject(projects[currentDomain][index], index)
          })
-         list.appendChild(button)
+         dots.appendChild(button)
       })
-      selectProject(projects[domain][0])
+      selectProject(projects[domain][0], 0)
    }
+
+   const showAdjacentProject = (direction) => {
+      const projectList = projects[currentDomain]
+      currentIndex = (currentIndex + direction + projectList.length) % projectList.length
+      selectProject(projectList[currentIndex], currentIndex)
+   }
+
+   previousButton.addEventListener('click', () => showAdjacentProject(-1))
+   nextButton.addEventListener('click', () => showAdjacentProject(1))
 
    projectBrowser.querySelectorAll('.work__domain').forEach((button) => {
       button.addEventListener('click', () => {
@@ -303,6 +331,40 @@ if (window.gsap && !reducedMotion) {
                once: true
             }
          })
+
+         const communitySection = document.querySelector('.community')
+         if (communitySection && window.ScrollTrigger) {
+            const communityTimeline = gsap.timeline({
+               scrollTrigger: {
+                  trigger: communitySection,
+                  start: 'top 78%',
+                  once: true
+               },
+               defaults: { ease: 'power2.out' }
+            })
+
+            communityTimeline
+               .from('.community__clubs .community__club', {
+                  y: 55,
+                  x: -24,
+                  scale: 0.96,
+                  autoAlpha: 0,
+                  duration: 0.75,
+                  stagger: 0.28
+               })
+               .from('.community__award-copy', {
+                  y: 35,
+                  autoAlpha: 0,
+                  duration: 0.65
+               }, '-=0.15')
+               .from('.community__gallery img', {
+                  y: 45,
+                  scale: 0.94,
+                  autoAlpha: 0,
+                  duration: 0.65,
+                  stagger: 0.16
+               }, '-=0.25')
+         }
       }
    })
 

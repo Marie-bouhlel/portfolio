@@ -73,7 +73,11 @@
                      Education
                   </a>
                </li>
-
+               <li>
+                  <a href="#community" class="nav__link">
+                     Community
+                  </a>
+               </li>
                <li>
                   <a href="#contact" class="nav__contact">
                      Contact me
@@ -157,7 +161,6 @@
                      <button class="work__domain is-active" type="button" role="tab" aria-selected="true" aria-controls="project-showcase" data-domain="development">Software Development</button>
                      <button class="work__domain" type="button" role="tab" aria-selected="false" aria-controls="project-showcase" data-domain="ai">AI & Data Science</button>
                   </div>
-                  <div class="work__project-list" data-project-list></div>
                </aside>
                <article class="work__showcase" id="project-showcase" role="tabpanel" data-project-showcase aria-live="polite">
                   <div class="work__showcase-media" data-project-media></div>
@@ -167,8 +170,57 @@
                      <p data-project-description></p>
                      <a class="work__link work__link--glow" data-project-link target="_blank" rel="noopener noreferrer">View project <i class="ri-arrow-right-up-line"></i></a>
                   </div>
+                  <div class="work__showcase-controls" aria-label="Project navigation">
+                     <button class="work__arrow" type="button" data-project-prev aria-label="Previous project"><i class="ri-arrow-left-line"></i></button>
+                     <div class="work__project-dots" data-project-dots aria-label="Choose a project"></div>
+                     <span class="work__project-counter" data-project-counter></span>
+                     <button class="work__arrow" type="button" data-project-next aria-label="Next project"><i class="ri-arrow-right-line"></i></button>
+                  </div>
                </article>
             </div>
+         </div>
+      </section>
+
+      <!--==================== COMMUNITY & ACHIEVEMENTS ====================-->
+      <section class="community section" id="community">
+         <div class="container">
+            <p class="section__eyebrow">Beyond engineering</p>
+            <h2 class="section__title section__title--left">Community & <span>achievements</span></h2>
+
+            <div class="community__clubs">
+               <article class="community__club">
+                  <img src="assets/img/community-ieee-event.jpg" alt="IEEE Computer Society club event">
+                  <div class="community__club-content">
+                     <span>IEEE Computer Society</span>
+                     <h3>Active member</h3>
+                     <p>Member of the student branch at the Ecole Polytechnique de Sousse, contributing to technical events, conferences and student initiatives.</p>
+                  </div>
+               </article>
+
+               <article class="community__club community__club--securinets">
+                  <img src="assets/img/community-securinets.jpg" alt="Securinets EPS information session">
+                  <div class="community__club-content">
+                     <span>Securinets EPS</span>
+                     <h3>Active member</h3>
+                     <p>Member of Securinets EPS, participating in cybersecurity sessions, information events and the technical club community.</p>
+                  </div>
+               </article>
+            </div>
+
+            <article class="community__award">
+               <div class="community__award-copy">
+                  <span class="community__award-label"><i class="ri-trophy-fill"></i> 1st place</span>
+                  <h3>Socio-cultural project - Mental Health</h3>
+                  <p>A project dedicated to mental-health awareness and psychological well-being that earned first place in the socio-cultural project challenge.</p>
+               </div>
+               <div class="community__gallery" aria-label="Community and award photos">
+                  <img class="community__gallery-feature" src="assets/img/community-first-place.jpg" alt="Team receiving the first-place award">
+                  <img src="assets/img/community-impact.jpg" alt="Mental health project team and certificates">
+                  <img src="assets/img/community-ieee.jpg" alt="IEEE community activity">
+                  <img src="assets/img/community-techx.jpg" alt="TECHX event activity">
+                  <img src="assets/img/community-root-access.jpg" alt="Root Access hackathon activity">
+               </div>
+            </article>
          </div>
       </section>
 
@@ -179,16 +231,16 @@
             <h2 class="section__title section__title--left">Learning with <span>purpose</span></h2>
             <div class="education__timeline">
                <article class="education__item">
-                  <div class="education__photo education__photo--lycee"><img src="assets/img/education-lycee.jpg" alt="Logo du Lycée Jeunes Filles de Sousse"></div>
-                  <div class="education__content"><span>2022</span><h3>Baccalauréat in Technical Sciences</h3><p>Lycée Jeunes Filles de Sousse</p></div>
+                  <div class="education__photo education__photo--polytech"><img src="assets/img/education-polytech.jpg" alt="Logo de l'École Polytechnique de Sousse"></div>
+                  <div class="education__content"><span>2024 – 2027</span><h3>Engineering Cycle in Computer Engineering</h3><p>Artificial Intelligence & Data Science · École Polytechnique de Sousse</p></div>
                </article>
                <article class="education__item">
                   <div class="education__photo education__photo--prep"><img src="assets/img/education-prep.png" alt="Logo de l'École Polytechnique de Sousse"></div>
                   <div class="education__content"><span>2022 – 2024</span><h3>Integrated Preparatory Cycle</h3><p>Mathematics, Physics and Computer Science</p></div>
                </article>
                <article class="education__item">
-                  <div class="education__photo education__photo--polytech"><img src="assets/img/education-polytech.jpg" alt="Logo de l'École Polytechnique de Sousse"></div>
-                  <div class="education__content"><span>2024 – 2027</span><h3>Engineering Cycle in Computer Engineering</h3><p>Artificial Intelligence & Data Science · École Polytechnique de Sousse</p></div>
+                  <div class="education__photo education__photo--lycee"><img src="assets/img/education-lycee.jpg" alt="Logo du Lycée Jeunes Filles de Sousse"></div>
+                  <div class="education__content"><span>2022</span><h3>Baccalauréat in Technical Sciences</h3><p>Lycée Jeunes Filles de Sousse</p></div>
                </article>
             </div>
          </div>
@@ -248,7 +300,32 @@
 
       <!--==================== CONTACT ====================-->
       <section class="contact section" id="contact">
-         <div class="contact__container container grid"><div><p class="section__eyebrow">Have a project?</p><h2 class="section__title section__title--left">Let's create something <span>useful.</span></h2><p class="contact__text">Tell me what you are working on and let's find the right way forward.</p><div class="contact__details"><a href="mailto:mariembouhlel21@gmail.com"><i class="ri-mail-line"></i> mariembouhlel21@gmail.com</a><a href="tel:+21628857303"><i class="ri-phone-line"></i> 28 857 303</a></div></div><form class="contact__form" id="contact-form"><label for="user_name">Name</label><input id="user_name" name="user_name" type="text" placeholder="Your name" required><label for="user_email">Email</label><input id="user_email" name="user_email" type="email" placeholder="you@email.com" required><label for="user_message">Message</label><textarea id="user_message" name="user_message" rows="5" placeholder="Tell me about your project" required></textarea><button type="submit" class="button">Send message <i class="ri-arrow-right-line"></i></button><p class="contact__message" id="contact-message"></p></form></div>
+         <div class="contact__container container grid">
+            <div>
+               <p class="section__eyebrow">Have a project?</p>
+               <h2 class="section__title section__title--left">Let's create something <span>useful.</span></h2>
+               <p class="contact__text">Tell me what you are working on and let's find the right way forward.</p>
+               <div class="contact__details">
+                  <a href="mailto:mariembouhlel21@gmail.com"><i class="ri-mail-line"></i> mariembouhlel21@gmail.com</a>
+                  <a href="tel:+21628857303"><i class="ri-phone-line"></i> 28 857 303</a>
+                  <a href="https://www.linkedin.com/in/mariem-bouhlel-747bb3356/" target="_blank" rel="noopener noreferrer"><i class="ri-linkedin-fill"></i> LinkedIn profile</a>
+               </div>
+               <a class="contact__linkedin" href="https://www.linkedin.com/in/mariem-bouhlel-747bb3356/" target="_blank" rel="noopener noreferrer" aria-label="Open Mariem Bouhlel's LinkedIn profile">
+                  <img src="assets/img/linkedin-qr.png" alt="QR code to Mariem Bouhlel's LinkedIn profile" width="132" height="132">
+                  <span>Scan to connect</span>
+               </a>
+            </div>
+            <form class="contact__form" id="contact-form">
+               <label for="user_name">Name</label>
+               <input id="user_name" name="user_name" type="text" placeholder="Your name" required>
+               <label for="user_email">Email</label>
+               <input id="user_email" name="user_email" type="email" placeholder="you@email.com" required>
+               <label for="user_message">Message</label>
+               <textarea id="user_message" name="user_message" rows="5" placeholder="Tell me about your project" required></textarea>
+               <button type="submit" class="button">Send message <i class="ri-arrow-right-line"></i></button>
+               <p class="contact__message" id="contact-message"></p>
+            </form>
+         </div>
       </section>
 
    </main>

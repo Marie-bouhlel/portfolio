@@ -127,15 +127,15 @@ if (projectBrowser) {
    const projects = {
       development: [
          { type: 'Featured / Product development', title: 'My Stay - Hotel Guest Application', description: 'A white-label hotel guest application connecting visitors with services, experiences, reservations and personalised support. My role: Co-Founder & Developer.', media: 'mystay-product', sources: ['assets/img/mystay-app.webp', 'assets/img/mystay-explore.webp', 'assets/img/mystay-dashboard.webp'], link: 'https://mystay.dev', clickAnimation: true },
-         { type: '01 / Angular', title: 'Event Management Application', description: 'Web application for organizing events, registrations and participants.', media: 'video', source: 'assets/img/work-img-1.mp4' },
+         { type: '01 / Angular', title: 'Event Management Application', description: 'Web application for organizing events, registrations and participants.', media: 'video', source: 'assets/img/work-img-1.webm' },
          { type: '02 / Flutter', title: 'Movie Discovery & Recommendation App', description: 'Mobile application for discovering films and receiving personalized recommendations.', media: 'phone-gallery', sources: ['assets/img/movie-login.jpg'], link: '#contact', internal: true },
-         { type: '03 / Software engineering', title: 'CMMS - Maintenance System', description: 'Maintenance management system for tracking equipment and interventions.', media: 'video', source: 'assets/img/CMMS.mp4', link: 'https://github.com/Marie-bouhlel/CMMS' },
-         { type: '04 / Full-stack web application', title: 'MoleculeScope - Molecular Research Platform', description: 'Full-stack platform for biology students and researchers to explore proteins, documented variants and scientific research projects. Stack: MongoDB, Express.js, React.js, Node.js and JWT. Features: authentication, role management, research projects, protein exploration, variants and scientific analysis reports. Status: under development.', media: 'video', source: 'assets/img/molecule.mp4', link: 'https://github.com/Marie-bouhlel/MoleculeScope' }
+         { type: '03 / Software engineering', title: 'CMMS - Maintenance System', description: 'Maintenance management system for tracking equipment and interventions.', media: 'video', source: 'assets/img/CMMS.webm', link: 'https://github.com/Marie-bouhlel/CMMS' },
+         { type: '04 / Full-stack web application', title: 'MoleculeScope - Molecular Research Platform', description: 'Full-stack platform for biology students and researchers to explore proteins, documented variants and scientific research projects. Stack: MongoDB, Express.js, React.js, Node.js and JWT. Features: authentication, role management, research projects, protein exploration, variants and scientific analysis reports. Status: under development.', media: 'video', source: 'assets/img/molecule.webm', link: 'https://github.com/Marie-bouhlel/MoleculeScope' }
       ],
       ai: [
-         { type: '01 / Machine learning', title: 'Classification Automatique du Statut Tensionnel MAPA', description: 'Automatic classification using Tunisian health data.', media: 'video', source: 'assets/img/work-img-3.mp4', link: 'https://github.com/Marie-bouhlel/Classification-Automatique-du-Statut-Tensionnel-MAPA' },
-         { type: '02 / Deep learning', title: 'OPHAI - RetinAI Diagnostic App', description: 'Diabetic retinopathy diagnosis assistant using deep learning, Grad-CAM and Streamlit.', media: 'video', source: 'assets/img/OPHtAI.mp4', link: 'https://github.com/Marie-bouhlel/OPHAI' },
-         { type: '03 / Deep learning', title: 'Epilepsy EEG Classification', description: 'Classification of EEG signals to support epilepsy analysis.', media: 'video', source: 'assets/img/EEG.mp4' }
+         { type: '01 / Machine learning', title: 'Classification Automatique du Statut Tensionnel MAPA', description: 'Automatic classification using Tunisian health data.', media: 'video', source: 'assets/img/work-img-3.webm', link: 'https://github.com/Marie-bouhlel/Classification-Automatique-du-Statut-Tensionnel-MAPA' },
+         { type: '02 / Deep learning', title: 'OPHAI - RetinAI Diagnostic App', description: 'Diabetic retinopathy diagnosis assistant using deep learning, Grad-CAM and Streamlit.', media: 'video', source: 'assets/img/OPHtAI.webm', link: 'https://github.com/Marie-bouhlel/OPHAI' },
+         { type: '03 / Deep learning', title: 'Epilepsy EEG Classification', description: 'Classification of EEG signals to support epilepsy analysis.', media: 'video', source: 'assets/img/EEG.webm' }
       ]
    }
    const list = projectBrowser.querySelector('[data-project-list]')
@@ -164,7 +164,7 @@ if (projectBrowser) {
          : project.media === 'gallery'
          ? `<div class="work__showcase-gallery">${project.sources.map((source) => `<img src="${source}" alt="${project.title} screenshot">`).join('')}</div>`
          : project.media === 'video'
-         ? `<video autoplay muted loop playsinline aria-label="${project.title} preview"><source src="${project.source}" type="video/mp4">Your browser does not support the video.</video>`
+         ? `<video autoplay muted loop playsinline preload="auto" aria-label="${project.title} preview"><source src="${project.source}" type="video/webm">Your browser does not support the video.</video>`
          : `<img src="${project.source}" alt="${project.title} preview">`
       kicker.textContent = project.type
       title.textContent = project.title

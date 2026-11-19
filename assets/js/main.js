@@ -126,22 +126,23 @@ const projectBrowser = document.querySelector('[data-project-browser]')
 if (projectBrowser) {
    const projects = {
       development: [
-         { type: 'Featured / Product development', title: 'My Stay - Hotel Guest Application', description: 'A white-label hotel guest application connecting visitors with services, experiences, reservations and personalised support. My role: Co-Founder & Developer.', media: 'mystay-product', sources: ['assets/img/mystay-app.webp', 'assets/img/mystay-explore.webp', 'assets/img/mystay-dashboard.webp'], link: 'https://mystay.dev', clickAnimation: true },
-         { type: '01 / Angular', title: 'Event Management Application', description: 'Web application for organizing events, registrations and participants.', media: 'video', source: 'assets/img/work-img-1.webm', poster: 'assets/img/work-img-2.png' },
-         { type: '02 / Flutter', title: 'Movie Discovery & Recommendation App', description: 'Mobile application for discovering films and receiving personalized recommendations.', media: 'phone-gallery', sources: ['assets/img/movie-login.jpg'], link: '#contact', internal: true },
-         { type: '03 / Software engineering', title: 'CMMS - Maintenance System', description: 'Maintenance management system for tracking equipment and interventions.', media: 'video', source: 'assets/img/CMMS.webm', poster: 'assets/img/work-img-4.png', link: 'https://github.com/Marie-bouhlel/CMMS' },
-         { type: '04 / Full-stack web application', title: 'MoleculeScope - Molecular Research Platform', description: 'Full-stack platform for biology students and researchers to explore proteins, documented variants and scientific research projects. Stack: MongoDB, Express.js, React.js, Node.js and JWT. Features: authentication, role management, research projects, protein exploration, variants and scientific analysis reports. Status: under development.', media: 'video', source: 'assets/img/molecule.webm', poster: 'assets/img/work-img-5.png', link: 'https://github.com/Marie-bouhlel/MoleculeScope' }
+         { type: 'Co-Founder / Product development', title: 'My Stay - Hotel Guest Application', preview: 'A white-label hotel guest application for hotel services and experiences.', description: 'A white-label hotel guest application connecting visitors with services, experiences, reservations and personalised support. I co-founded My Stay and lead the product development as Co-Founder & Developer.', media: 'mystay-product', sources: ['assets/img/mystay-app.webp', 'assets/img/mystay-explore.webp', 'assets/img/mystay-dashboard.webp'], link: 'https://mystay.dev', clickAnimation: true },
+         { type: '01 / Angular', title: 'Event Management Application', description: 'Web application for organizing events, registrations and participants.', media: 'video', source: 'assets/img/work-img-1.mp4', fallback: 'assets/img/work-img-1.webm', poster: 'assets/img/work-img-2.png' },
+         { type: '02 / Flutter', title: 'Movie Discovery & Recommendation App', description: 'A polished mobile application for discovering films, exploring details and receiving personalized recommendations.', media: 'phone-gallery', sources: ['assets/img/movie-login.jpg'], link: '#contact', internal: true },
+         { type: '03 / Software engineering', title: 'CMMS - Maintenance System', description: 'Maintenance management system for tracking equipment and interventions.', media: 'video', source: 'assets/img/CMMS.mp4', fallback: 'assets/img/CMMS.webm', poster: 'assets/img/work-img-4.png', link: 'https://github.com/Marie-bouhlel/CMMS' },
+         { type: '04 / Full-stack web application', title: 'MoleculeScope - Molecular Research Platform', description: 'Full-stack platform for biology students and researchers to explore proteins, documented variants and scientific research projects. Stack: MongoDB, Express.js, React.js, Node.js and JWT. Features: authentication, role management, research projects, protein exploration, variants and scientific analysis reports. Status: under development.', media: 'video', source: 'assets/img/molecule.mp4', fallback: 'assets/img/molecule.webm', poster: 'assets/img/work-img-5.png', link: 'https://github.com/Marie-bouhlel/MoleculeScope' }
       ],
       ai: [
-         { type: '01 / Machine learning', title: 'Classification Automatique du Statut Tensionnel MAPA', description: 'Automatic classification using Tunisian health data.', media: 'video', source: 'assets/img/work-img-3.webm', link: 'https://github.com/Marie-bouhlel/Classification-Automatique-du-Statut-Tensionnel-MAPA' },
-         { type: '02 / Deep learning', title: 'OPHAI - RetinAI Diagnostic App', description: 'Diabetic retinopathy diagnosis assistant using deep learning, Grad-CAM and Streamlit.', media: 'video', source: 'assets/img/OPHtAI.webm', link: 'https://github.com/Marie-bouhlel/OPHAI' },
-         { type: '03 / Deep learning', title: 'Epilepsy EEG Classification', description: 'Classification of EEG signals to support epilepsy analysis.', media: 'video', source: 'assets/img/EEG.webm' }
+         { type: '01 / Machine learning', title: 'Classification Automatique du Statut Tensionnel MAPA', description: 'Automatic classification using Tunisian health data.', media: 'video', source: 'assets/img/work-img-3.mp4', fallback: 'assets/img/work-img-3.webm', link: 'https://github.com/Marie-bouhlel/Classification-Automatique-du-Statut-Tensionnel-MAPA' },
+         { type: '02 / Deep learning', title: 'OPHAI - RetinAI Diagnostic App', description: 'Diabetic retinopathy diagnosis assistant using deep learning, Grad-CAM and Streamlit.', media: 'video', source: 'assets/img/OPHtAI.mp4', fallback: 'assets/img/OPHtAI.webm', link: 'https://github.com/Marie-bouhlel/OPHAI' },
+         { type: '03 / Deep learning', title: 'Epilepsy EEG Classification', description: 'Classification of EEG signals to support epilepsy analysis.', media: 'video', source: 'assets/img/EEG.mp4', fallback: 'assets/img/EEG.webm' }
       ]
    }
    const media = projectBrowser.querySelector('[data-project-media]')
    const kicker = projectBrowser.querySelector('[data-project-kicker]')
    const title = projectBrowser.querySelector('[data-project-title]')
    const description = projectBrowser.querySelector('[data-project-description]')
+   const readMoreButton = projectBrowser.querySelector('[data-project-read-more]')
    const link = projectBrowser.querySelector('[data-project-link]')
    const showcase = projectBrowser.querySelector('[data-project-showcase]')
    const previousButton = projectBrowser.querySelector('[data-project-prev]')
@@ -160,20 +161,35 @@ if (projectBrowser) {
       requestAnimationFrame(() => link.classList.add('is-clicking'))
    })
 
+   readMoreButton.addEventListener('click', () => {
+      const expanded = description.classList.toggle('is-expanded')
+      readMoreButton.setAttribute('aria-expanded', String(expanded))
+      description.textContent = expanded ? description.dataset.fullDescription : (description.dataset.preview || description.dataset.fullDescription)
+      readMoreButton.innerHTML = `${expanded ? 'View less' : 'View more'} <i class="ri-arrow-down-s-line"></i>`
+   })
+
    const renderProject = (project) => {
       window.clearInterval(carouselTimer)
       media.innerHTML = project.media === 'mystay-product'
-         ? `<div class="mystay-product"><div class="mystay-product__desktop"><img src="${project.sources[2]}" alt="My Stay hotel operations dashboard"></div><div class="mystay-product__phones"><div class="mystay-product__phone"><span></span><img src="${project.sources[0]}" alt="My Stay guest mobile application home"></div><div class="mystay-product__phone mystay-product__phone--back"><span></span><img src="${project.sources[1]}" alt="My Stay guest mobile application explore screen"></div></div></div>`
+         ? `<div class="mystay-product"><div class="mystay-product__desktop"><img src="${project.sources[2]}" alt="My Stay hotel operations dashboard"></div><div class="mystay-product__phone"><span class="mystay-product__phone-speaker"></span><div class="mystay-product__phone-screen"><img src="${project.sources[0]}" alt="My Stay guest mobile application"></div></div></div>`
          : project.media === 'phone-gallery'
          ? `<div class="movie-devices" aria-label="${project.title} screenshots"><div class="movie-phone"><div class="movie-phone__speaker"></div><div class="movie-phone__screen"><div class="movie-phone__slides"><img class="is-visible" src="${project.sources[0]}" alt="${project.title} login screen"></div></div></div></div>`
          : project.media === 'gallery'
          ? `<div class="work__showcase-gallery">${project.sources.map((source) => `<img src="${source}" alt="${project.title} screenshot">`).join('')}</div>`
          : project.media === 'video'
-         ? `<div class="work__video-frame"><video autoplay muted loop playsinline preload="metadata" poster="${project.poster || ''}" aria-label="${project.title} preview"><source src="${project.source}" type="video/webm">Your browser does not support the video.</video></div>`
+         ? `<div class="work__video-frame"><video autoplay muted loop playsinline preload="metadata" poster="${project.poster || ''}" aria-label="${project.title} preview"><source src="${project.source}" type="video/mp4"><source src="${project.fallback}" type="video/webm">Your browser does not support the video.</video></div>`
          : `<img src="${project.source}" alt="${project.title} preview">`
       kicker.textContent = project.type
       title.textContent = project.title
-      description.textContent = project.description
+      description.textContent = project.preview || project.description
+      description.dataset.fullDescription = project.description
+      description.dataset.preview = project.preview || project.description
+      description.classList.remove('is-expanded')
+      readMoreButton.setAttribute('aria-expanded', 'false')
+      readMoreButton.innerHTML = `View more <i class="ri-arrow-down-s-line"></i>`
+      requestAnimationFrame(() => {
+         readMoreButton.hidden = description.scrollHeight <= description.clientHeight
+      })
       link.href = project.link || '#contact'
       link.target = project.internal ? '_self' : '_blank'
       link.innerHTML = `${project.internal ? 'Discuss this project' : 'View project'} <i class="ri-arrow-right-up-line"></i>`
@@ -331,38 +347,52 @@ if (window.gsap && !reducedMotion) {
             }
          })
 
-         const communitySection = document.querySelector('.community')
-         if (communitySection && window.ScrollTrigger) {
-            const communityTimeline = gsap.timeline({
-               scrollTrigger: {
-                  trigger: communitySection,
-                  start: 'top 78%',
-                  once: true
-               },
-               defaults: { ease: 'power2.out' }
+         const communitySlideshow = document.querySelector('[data-community-slideshow]')
+         if (communitySlideshow && !communitySlideshow.dataset.initialized) {
+            communitySlideshow.dataset.initialized = 'true'
+            const slideImage = communitySlideshow.querySelector('[data-community-slide]')
+            const slides = [
+               { src: 'assets/img/community-first-place.jpg', alt: 'Team receiving the first-place award' },
+               { src: 'assets/img/community-impact.jpg', alt: 'Mental health project team and certificates' },
+               { src: 'assets/img/community-ieee.jpg', alt: 'IEEE community activity' },
+               { src: 'assets/img/community-techx.jpg', alt: 'TECHX event activity' },
+               { src: 'assets/img/community-root-access.jpg', alt: 'Root Access hackathon activity' },
+               { src: 'assets/img/community-securinets.jpg', alt: 'Securinets EPS information session' },
+               { src: 'assets/img/community-ieee-event.jpg', alt: 'IEEE Computer Society event' }
+            ]
+            const dotsContainer = communitySlideshow.querySelector('[data-community-dots]')
+            let slideIndex = 0
+            let slideTimer
+            dotsContainer.innerHTML = ''
+            slides.forEach((slide, index) => {
+               const dot = document.createElement('button')
+               dot.type = 'button'
+               dot.className = `community__slide-dot${index === 0 ? ' is-active' : ''}`
+               dot.setAttribute('aria-label', `Show community photo ${index + 1}`)
+               dot.addEventListener('click', () => showCommunitySlide(index))
+               dotsContainer.appendChild(dot)
             })
 
-            communityTimeline
-               .from('.community__clubs .community__club', {
-                  y: 55,
-                  x: -24,
-                  scale: 0.96,
-                  autoAlpha: 0,
-                  duration: 0.75,
-                  stagger: 0.28
+            const showCommunitySlide = (index) => {
+               slideIndex = (index + slides.length) % slides.length
+               slideImage.classList.add('is-changing')
+               window.setTimeout(() => {
+                  slideImage.src = slides[slideIndex].src
+                  slideImage.alt = slides[slideIndex].alt
+                  slideImage.classList.remove('is-changing')
+               }, 220)
+               dotsContainer.querySelectorAll('.community__slide-dot').forEach((dot, dotIndex) => {
+                  dot.classList.toggle('is-active', dotIndex === slideIndex)
                })
-               .from('.community__award-copy', {
-                  y: 35,
-                  autoAlpha: 0,
-                  duration: 0.65
-               }, '-=0.15')
-               .from('.community__gallery img', {
-                  y: 45,
-                  scale: 0.94,
-                  autoAlpha: 0,
-                  duration: 0.65,
-                  stagger: 0.16
-               }, '-=0.25')
+            }
+
+            communitySlideshow.querySelector('[data-community-prev]').addEventListener('click', () => showCommunitySlide(slideIndex - 1))
+            communitySlideshow.querySelector('[data-community-next]').addEventListener('click', () => showCommunitySlide(slideIndex + 1))
+            slideTimer = window.setInterval(() => showCommunitySlide(slideIndex + 1), 3500)
+            communitySlideshow.addEventListener('mouseenter', () => window.clearInterval(slideTimer))
+            communitySlideshow.addEventListener('mouseleave', () => {
+               slideTimer = window.setInterval(() => showCommunitySlide(slideIndex + 1), 3500)
+            })
          }
       }
    })

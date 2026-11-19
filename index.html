@@ -118,7 +118,7 @@
             <div class="home__content">
                <p class="home__subtitle">Hi, I'm Mariem</p>
                <h1 class="home__title">AI & Data Science<br><span id="home-typed">Engineer</span></h1>
-               <p class="home__description">AI & Data Science Engineer, Software Developer, and Co-Founder & Developer of <strong>My Stay</strong>, a hotel guest application.</p>
+               <p class="home__description"><strong>AI & Data Science Engineer and Software Developer.</strong><br><strong>Co-Founder & Developer</strong> of <strong>My Stay</strong>, a hotel guest application.</p>
                <div class="home__buttons">
                   <a href="#work" class="button">View my work <i class="ri-arrow-right-line"></i></a>
                   <a href="#contact" class="button button--ghost">Let's talk</a>
@@ -141,8 +141,9 @@
                <h2 class="section__title section__title--left">Building with <span>curiosity</span> and purpose.</h2>
             </div>
             <div class="about__content">
-               <p class="about__description">AI and Data Science Engineer, Software Developer, and Co-Founder & Developer of My Stay, a hotel guest application connecting guests with hotel services.</p>
-               <p class="about__description">I work across machine learning, deep learning, web and mobile development, always looking for the clearest solution to a meaningful problem.</p>
+               <p class="about__description"><strong>AI & Data Science Engineer and Software Developer.</strong><br><strong>Co-Founder & Developer</strong> of <strong>My Stay</strong>, a hotel guest application.</p>
+               <p class="about__description">Passionate about Artificial Intelligence, Machine Learning, Deep Learning, Computer Vision, NLP, and Generative AI, with a growing interest in Biomedical AI.</p>
+               <p class="about__description">I combine AI expertise with web and mobile development to build intelligent, practical solutions that address real-world challenges, with an interest in innovation across technology and hospitality.</p>
                <a href="#contact" class="button button--small">Contact me <i class="ri-arrow-right-line"></i></a>
             </div>
          </div>
@@ -164,17 +165,22 @@
                </aside>
                <article class="work__showcase" id="project-showcase" role="tabpanel" data-project-showcase aria-live="polite">
                   <div class="work__showcase-media" data-project-media></div>
-                  <div class="work__showcase-content">
-                     <span class="work__showcase-kicker" data-project-kicker></span>
-                     <h3 data-project-title></h3>
-                     <p data-project-description></p>
-                     <a class="work__link work__link--glow" data-project-link target="_blank" rel="noopener noreferrer">View project <i class="ri-arrow-right-up-line"></i></a>
-                  </div>
-                  <div class="work__showcase-controls" aria-label="Project navigation">
-                     <button class="work__arrow" type="button" data-project-prev aria-label="Previous project"><i class="ri-arrow-left-line"></i></button>
-                     <div class="work__project-dots" data-project-dots aria-label="Choose a project"></div>
-                     <span class="work__project-counter" data-project-counter></span>
-                     <button class="work__arrow" type="button" data-project-next aria-label="Next project"><i class="ri-arrow-right-line"></i></button>
+                  <div class="work__showcase-side">
+                     <div class="work__showcase-content">
+                        <span class="work__showcase-kicker" data-project-kicker></span>
+                        <h3 data-project-title></h3>
+                        <p data-project-description></p>
+                        <button class="work__read-more" type="button" data-project-read-more aria-expanded="false">View more <i class="ri-arrow-down-s-line"></i></button>
+                     </div>
+                     <div class="work__showcase-actions">
+                        <a class="work__link work__link--glow" data-project-link target="_blank" rel="noopener noreferrer">View project <i class="ri-arrow-right-up-line"></i></a>
+                        <div class="work__showcase-controls" aria-label="Project navigation">
+                           <button class="work__arrow" type="button" data-project-prev aria-label="Previous project"><i class="ri-arrow-left-line"></i></button>
+                           <div class="work__project-dots" data-project-dots aria-label="Choose a project"></div>
+                           <span class="work__project-counter" data-project-counter></span>
+                           <button class="work__arrow" type="button" data-project-next aria-label="Next project"><i class="ri-arrow-right-line"></i></button>
+                        </div>
+                     </div>
                   </div>
                </article>
             </div>
@@ -213,12 +219,31 @@
                   <h3>Socio-cultural project - Mental Health</h3>
                   <p>A project dedicated to mental-health awareness and psychological well-being that earned first place in the socio-cultural project challenge.</p>
                </div>
-               <div class="community__gallery" aria-label="Community and award photos">
-                  <img class="community__gallery-feature" src="assets/img/community-first-place.jpg" alt="Team receiving the first-place award">
-                  <img src="assets/img/community-impact.jpg" alt="Mental health project team and certificates">
-                  <img src="assets/img/community-ieee.jpg" alt="IEEE community activity">
-                  <img src="assets/img/community-techx.jpg" alt="TECHX event activity">
-                  <img src="assets/img/community-root-access.jpg" alt="Root Access hackathon activity">
+               <div class="community__slideshow" data-community-slideshow aria-label="Community and award photos">
+                  <img data-community-slide src="assets/img/community-first-place.jpg" alt="Team receiving the first-place award">
+                  <button type="button" class="community__slide-arrow community__slide-arrow--prev" data-community-prev aria-label="Previous photo"><i class="ri-arrow-left-line"></i></button>
+                  <button type="button" class="community__slide-arrow community__slide-arrow--next" data-community-next aria-label="Next photo"><i class="ri-arrow-right-line"></i></button>
+                  <div class="community__slide-dots" data-community-dots></div>
+               </div>
+            </article>
+         </div>
+      </section>
+
+      <!--==================== SCIENTIFIC PUBLICATION ====================-->
+      <section class="publication section" id="publication">
+         <div class="container">
+            <p class="section__eyebrow">Scientific publication</p>
+            <article class="publication__card">
+               <div class="publication__mark"><i class="ri-book-open-line"></i></div>
+               <div>
+                  <span class="publication__meta">Research article · Machine Learning · 2025</span>
+                  <h2>Automatic Classification of Blood Pressure Status Using Tunisian MAPA Data</h2>
+                  <p>This research explores machine learning methods for automatically classifying blood pressure status from ambulatory blood pressure monitoring data collected in Tunisia. The work focuses on building a reliable, data-driven approach that can support clinical analysis and improve the interpretation of MAPA measurements.</p>
+                  <div class="publication__keywords"><span>MAPA</span><span>Machine Learning</span><span>Health Data</span><span>Tunisia</span></div>
+                  <div class="publication__actions">
+                     <a class="work__link work__link--glow" href="assets/img/article.pdf" target="_blank" rel="noopener noreferrer">Read the article <i class="ri-file-text-line"></i></a>
+                     <a class="work__link" href="https://github.com/Marie-bouhlel/Classification-Automatique-du-Statut-Tensionnel-MAPA" target="_blank" rel="noopener noreferrer">View MAPA project <i class="ri-arrow-right-up-line"></i></a>
+                  </div>
                </div>
             </article>
          </div>
@@ -245,27 +270,6 @@
             </div>
          </div>
       </section>
-
-      <!--==================== SCIENTIFIC PUBLICATION ====================-->
-      <section class="publication section" id="publication">
-         <div class="container">
-            <p class="section__eyebrow">Scientific publication</p>
-            <article class="publication__card">
-               <div class="publication__mark"><i class="ri-book-open-line"></i></div>
-               <div>
-                  <span class="publication__meta">Research article · Machine Learning · 2025</span>
-                  <h2>Automatic Classification of Blood Pressure Status Using Tunisian MAPA Data</h2>
-                  <p>This research explores machine learning methods for automatically classifying blood pressure status from ambulatory blood pressure monitoring data collected in Tunisia. The work focuses on building a reliable, data-driven approach that can support clinical analysis and improve the interpretation of MAPA measurements.</p>
-                  <div class="publication__keywords"><span>MAPA</span><span>Machine Learning</span><span>Health Data</span><span>Tunisia</span></div>
-                  <div class="publication__actions">
-                     <a class="work__link work__link--glow" href="assets/img/article.pdf" target="_blank" rel="noopener noreferrer">Read the article <i class="ri-file-text-line"></i></a>
-                     <a class="work__link" href="https://github.com/Marie-bouhlel/Classification-Automatique-du-Statut-Tensionnel-MAPA" target="_blank" rel="noopener noreferrer">View MAPA project <i class="ri-arrow-right-up-line"></i></a>
-                  </div>
-               </div>
-            </article>
-         </div>
-      </section>
-
 
       <!--==================== SERVICES ====================-->
       <section class="services section" id="service">
